@@ -2,11 +2,12 @@ const divcontainer = document.getElementById("div-container");
 
 
 class Cell{
-    constructor(x,y,sizeOFCell){
+    constructor(x,y,sizeOFCell,index){
         this.x= x;
         this.y = y;
         this.sizeOFCell = sizeOFCell;
         this.div = null;
+        this.index = index;
     }
 
     // renderCell(){
@@ -16,7 +17,7 @@ class Cell{
     //     ctx.stroke();
     // }
 
-    createDiv() {
+    renderCell() {
         this.div = document.createElement("div");
         this.div.style.position = "absolute";
         this.div.style.left = this.x + "px";
@@ -28,8 +29,8 @@ class Cell{
         this.div.id = this.index;
         divcontainer.appendChild(this.div);
 
-        this.div.addEventListener("mouseover",()=>{
-            this.div.style.backgroundColor = "blue";
+        this.div.addEventListener("mousedown",()=>{
+            console.log(this);
 
         })
     }
