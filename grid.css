@@ -6,6 +6,7 @@
   margin-top: 7%;
   margin-left: 20px;
   background-color: white;
+
 }
 #div-container{
   position: absolute;
@@ -17,21 +18,24 @@ div{
   padding: 0;
   font-size: 0;
 }
- /* .grid-container{
-    outline:2px solid #000;
-	font-size: 0;
-	margin:auto;
-	height:500px;
-	width:500px;
-	padding: 0;
-	border: none;
-    
+button{
+  position: absolute;
+  height: 50px;
+  width: 50px;
 }
+#wall{
+  top: 0;
+  left: 0;
+  background-color: black;
 
-.box{
-    height: 30px;
-    width: 30px;
-    border: 0.5px solid black;
-    display: inline-block;
-} 
- */
+}
+#start{
+  top: 0;
+  left : 100px;
+  background-color: green;
+}
+#end{
+  top: 0;
+  left : 200px;
+  background-color: red;
+}

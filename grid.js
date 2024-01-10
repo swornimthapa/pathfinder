@@ -31,3 +31,5 @@ let renderGrid = () =>{
 window.onload = function() {
     renderGrid();
 };
+
+console.log(cellArray);
