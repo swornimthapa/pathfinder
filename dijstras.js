@@ -21,7 +21,6 @@ async function dijkstra(cellArray, startNode ,endNode) {
     
     unvisitedNode = unvisitedNode.filter(node => node !== currentNode);
     // console.log(unvisitedNode);
-
         while (unvisitedNode.length > 0) {
             setTimeout(()=>{
 
@@ -32,7 +31,7 @@ async function dijkstra(cellArray, startNode ,endNode) {
                 if(!neighbor.isWall){
                     let newDistance = distanceTable[currentNode.index].disFromSource + neighbor.weight;
                      neighbor.div.style.backgroundColor = "#00fff3";
-                     await new Promise(resolve => setTimeout(resolve, 2));
+                     await new Promise(resolve => setTimeout(resolve, 1));
                     if (newDistance < distanceTable[neighbor.index].disFromSource) {
                         distanceTable[neighbor.index] = { disFromSource: newDistance, preNode: currentNode};
                     }

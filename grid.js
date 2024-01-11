@@ -2,7 +2,7 @@ const canvas = document.getElementById("canvas");
 const ctx= canvas.getContext("2d");
 canvas.width = window.innerWidth*0.97;
 canvas.height = window.innerHeight*0.8;
-const sizeOFCell = 30;
+const sizeOFCell = 25;
 const noOfBoxPerRow = Math.floor(canvas.height/sizeOFCell);
 const noOfBoxPerColumn = Math.floor(canvas.width/sizeOFCell);
 // console.log(noOfBoxPerColumn);
@@ -38,6 +38,7 @@ let renderGrid = () =>{
 
 window.onload = function() {
     renderGrid();
+
 };
 
 // console.log(grid[0][0]);
