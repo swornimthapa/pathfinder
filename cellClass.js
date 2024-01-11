@@ -12,6 +12,9 @@ let isEndClicked = false;
 let isStartAvailable = true;
 let isEndAvailable = true;
 
+let startNode;
+let endNode;
+
 class Cell {
   constructor(
     x,
@@ -30,6 +33,7 @@ class Cell {
     this.isWall = isWall;
     this.isStart = isStart;
     this.isEnd = isEnd;
+    this.weight = 1;
   }
 
   // renderCell(){
@@ -46,7 +50,7 @@ class Cell {
     this.div.style.top = this.y + "px";
     this.div.style.width = this.sizeOFCell + "px";
     this.div.style.height = this.sizeOFCell + "px";
-    this.div.style.border = "1px solid green";
+    this.div.style.border = "1px solid black";
     this.div.style.display = "inline-block";
     this.div.id = `cell-${this.index}`;
     divcontainer.appendChild(this.div);
@@ -66,10 +70,12 @@ class Cell {
             this.div.style.backgroundColor = "green";
             this.isStart = true;
             isStartAvailable=false;
+            startNode = this;
           }else if(isEndClicked == true && isEndAvailable==true){
             this.div.style.backgroundColor = "red";
             this.isEnd = true;
             isEndAvailable=false;
+            endNode=this;
           }
       }
     
