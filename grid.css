@@ -1,47 +1,54 @@
 *{
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
-#canvas{
-  margin-top: 7%;
-  margin-left: 20px;
-  background-color: white;
-
+nav{
+  background-color: rgb(17, 117, 188);
+}
+nav h1{
+  text-align: center;
+}
+.nav-container{
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+.button-container{
+  display: flex;
+  align-items: center;
+}
+.button-container p{
+  margin-right: 10px;
+  font-size: 1.4rem;
 }
 #div-container{
-  position: absolute;
-  margin-top: 7%;
-  margin-left: 20px;
+  position: relative;
+  margin-top: 15px; 
+  margin-left: 20px; 
 }
-div{
-  margin: 0;
-  padding: 0;
-  font-size: 0;
-}
+
 button{
-  position: absolute;
   height: 50px;
   width: 50px;
 }
 #wall{
-  top: 0;
-  left: 0;
   background-color: black;
-
 }
 #start{
-  top: 0;
-  left : 100px;
+  color: green;
   background-color: green;
 }
 #end{
-  top: 0;
-  left : 200px;
+  color: red;
   background-color: red;
 }
 #run{
-  top: 0;
-  left : 300px;
- 
-  /* background-color: red; */
+  width: fit-content;
+  padding:5px;
+}
+
+#canvas{
+
+  background-color: white;
 }
