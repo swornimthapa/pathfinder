@@ -1,7 +1,10 @@
 let visitedNode = [];
 
 
-function dijkstra(cellArray, startNode ,endNode) {
+async function dijkstra(cellArray, startNode ,endNode) {
+
+    // animation();
+
     let unvisitedNode = cellArray.slice(); // Copy the array
     let distanceTable = {};
     let currentNode = startNode;
@@ -14,49 +17,57 @@ function dijkstra(cellArray, startNode ,endNode) {
     }
 
     distanceTable[startNode.index] = { disFromSource: 0, preNode: null };
-    visitedNode.push(currentNode);
+    // visitedNode.push(currentNode);
+    
     unvisitedNode = unvisitedNode.filter(node => node !== currentNode);
     // console.log(unvisitedNode);
-    while (unvisitedNode.length > 0) {
-        let neiArray = findNeighbours(currentNode, cellArray);
 
-        for (let neighbor of neiArray) {
-            if(!neighbor.isWall){
-                let newDistance = distanceTable[currentNode.index].disFromSource + neighbor.weight;
+        while (unvisitedNode.length > 0) {
+            setTimeout(()=>{
 
-                if (newDistance < distanceTable[neighbor.index].disFromSource) {
-                    distanceTable[neighbor.index] = { disFromSource: newDistance, preNode: currentNode };
+            },100);
+            let neiArray = findNeighbours(currentNode, cellArray);
+    
+            for (let neighbor of neiArray) {
+                if(!neighbor.isWall){
+                    let newDistance = distanceTable[currentNode.index].disFromSource + neighbor.weight;
+                     neighbor.div.style.backgroundColor = "#00fff3";
+                     await new Promise(resolve => setTimeout(resolve, 2));
+                    if (newDistance < distanceTable[neighbor.index].disFromSource) {
+                        distanceTable[neighbor.index] = { disFromSource: newDistance, preNode: currentNode};
+                    }
+                }
+                
+            }
+            visitedNode.push(currentNode);
+            currentNode.div.style.backgroundColor = "blue";
+            // Find the next unvisited node with the smallest tentative distance
+            let minDistance = Infinity;
+            let nextNode = null;
+    
+            for (let node of unvisitedNode) {
+                if (distanceTable[node.index].disFromSource < minDistance) {
+                    minDistance = distanceTable[node.index].disFromSource;
+                    nextNode = node;
                 }
             }
-            
-        }
-
-        visitedNode.push(currentNode);
-
-        // Find the next unvisited node with the smallest tentative distance
-        let minDistance = Infinity;
-        let nextNode = null;
-
-        for (let node of unvisitedNode) {
-            if (distanceTable[node.index].disFromSource < minDistance) {
-                minDistance = distanceTable[node.index].disFromSource;
-                nextNode = node;
+    
+            if (nextNode === null) {
+                // All remaining nodes are unreachable, break the loop
+                break;
             }
-        }
-
-        if (nextNode === null) {
-            // All remaining nodes are unreachable, break the loop
+            
+           if(nextNode.isEnd == true){
             break;
+           }
+    
+            currentNode = nextNode;
+            unvisitedNode = unvisitedNode.filter(node => node !== currentNode);
         }
-
-        
-        currentNode = nextNode;
-        unvisitedNode = unvisitedNode.filter(node => node !== currentNode);
-    }
-
-    console.log(visitedNode);
-    findShortesPath(endNode,distanceTable);
+        console.log(visitedNode);
+        findShortesPath(endNode,distanceTable);
 }
+
 
 
 

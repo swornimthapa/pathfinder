@@ -36,9 +36,9 @@ let renderGrid = () =>{
 
 
 
-// window.onload = function() {
+window.onload = function() {
     renderGrid();
-// };
+};
 
 // console.log(grid[0][0]);
 
