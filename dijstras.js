@@ -51,19 +51,14 @@ async function dijkstra(cellArray, startNode ,endNode) {
                 }
             }
     
-            if (nextNode === null) {
-                // All remaining nodes are unreachable, break the loop
+            if (nextNode === null || nextNode.isEnd == true) {
                 break;
             }
             
-           if(nextNode.isEnd == true){
-            break;
-           }
     
             currentNode = nextNode;
             unvisitedNode = unvisitedNode.filter(node => node !== currentNode);
         }
-        console.log(visitedNode);
         findShortesPath(endNode,distanceTable);
 }
 
@@ -89,8 +84,6 @@ function findShortesPath(endNode ,distanceTable){
 
 function findNeighbours(currentNode,cellArray){
     let neighbours=[];
-    // console.log(currentNode.x,currentNode.y)
-    // console.log(cellArray.length);
     for(let i=0;i<cellArray.length;i++){   
         if(currentNode.x==(cellArray[i].x) && (currentNode.y-sizeOFCell)==(cellArray[i].y)){  //upNode
             if(!visitedNode.includes(cellArray[i])){
@@ -121,7 +114,6 @@ function findNeighbours(currentNode,cellArray){
         }
    
     }
-    // console.log(neighbours);
     return neighbours;
  
 }
