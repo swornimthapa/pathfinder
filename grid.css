@@ -47,7 +47,10 @@ button{
   width: fit-content;
   padding:5px;
 }
-
+#weights{
+  background-color: #7F5539;
+  color: #7F5539;
+}
 #canvas{
 
   background-color: white;

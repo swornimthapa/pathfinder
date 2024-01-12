@@ -30,7 +30,7 @@ async function dijkstra(cellArray, startNode ,endNode) {
             for (let neighbor of neiArray) {
                 if(!neighbor.isWall){
                     let newDistance = distanceTable[currentNode.index].disFromSource + neighbor.weight;
-                     neighbor.div.style.backgroundColor = "#00fff3";
+                     neighbor.div.style.backgroundColor = "#7AE582";
                      await new Promise(resolve => setTimeout(resolve, 1));
                     if (newDistance < distanceTable[neighbor.index].disFromSource) {
                         distanceTable[neighbor.index] = { disFromSource: newDistance, preNode: currentNode};
@@ -39,7 +39,7 @@ async function dijkstra(cellArray, startNode ,endNode) {
                 
             }
             visitedNode.push(currentNode);
-            currentNode.div.style.backgroundColor = "blue";
+            currentNode.div.style.backgroundColor = "#00A5CF";
             // Find the next unvisited node with the smallest tentative distance
             let minDistance = Infinity;
             let nextNode = null;
